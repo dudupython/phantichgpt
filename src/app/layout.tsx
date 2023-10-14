@@ -1,6 +1,15 @@
 import '@/styles/globals.css'
+import Link from "next/link"
+
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ClerkProvider } from '@clerk/nextjs'
+import { cn } from "@/lib/utils"
+
+import { marketingConfig } from '@/config/marketing'
+import { buttonVariants } from "@/components/ui/button"
+import { MainNav } from "@/components/main-nav"
+import { UserButton } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,8 +24,34 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="fixed h-screen w-full bg-gradient-to-br from-violet-100 via-teal-50 to-amber-100">
+        
+        <header className="container z-40 bg-transparent">
+          <div className="flex h-20 items-center justify-between py-6">
+            <MainNav items={marketingConfig.mainNav} />
+            <nav>
+              <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
+              Login
+            </Link>
+
+            <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
+              Login
+            </Link>
+            <UserButton />
+
+
+            </nav>
+          </div>
+        </header>
+
+        {children}
+      </div>
+      </body>
     </html>
+    </ClerkProvider>
+
   )
 }
