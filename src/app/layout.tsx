@@ -3,13 +3,18 @@ import Link from "next/link"
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ClerkProvider } from '@clerk/nextjs'
 import { cn } from "@/lib/utils"
 
 import { marketingConfig } from '@/config/marketing'
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { MainNav } from "@/components/main-nav"
-import { UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,7 +29,21 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider  appearance={{
+      variables: { colorPrimary: "transparent" },
+      elements: {
+        formButtonPrimary:
+          "bg-black border border-black border-solid hover:bg-white hover:text-black",
+        socialButtonsBlockButton:
+          "bg-white border-gray-200 hover:bg-transparent hover:border-black text-gray-600 hover:text-black",
+        socialButtonsBlockButtonText: "font-semibold",
+        formButtonReset:
+          "bg-white border border-solid border-gray-200 hover:bg-transparent hover:border-black text-gray-500 hover:text-black",
+        membersPageInviteButton:
+          "bg-black border border-black border-solid hover:bg-white hover:text-black",
+        card: "bg-[#fafafa]",
+      },
+    }}>
     <html lang="en">
       <body className={inter.className}>
         <div className="fixed h-screen w-full bg-gradient-to-br from-violet-100 via-teal-50 to-amber-100">
@@ -33,15 +52,25 @@ export default function RootLayout({
           <div className="flex h-20 items-center justify-between py-6">
             <MainNav items={marketingConfig.mainNav} />
             <nav>
-              <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
+              {/* <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
               Login
-            </Link>
+            </Link> */}
 
-            <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
-              Login
+          
+            <SignedIn>
+            <Link href="/dashboard" >
+            <Button>
+              Dashboard
+              </Button>
             </Link>
-            <UserButton />
-
+            
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <Button>
+                <SignInButton />
+              </Button>
+            </SignedOut>
 
             </nav>
           </div>

@@ -1,5 +1,6 @@
-import { SubscriptionPlan } from "types"
-import { env } from "@/env.mjs"
+import { SubscriptionPlan } from "@/types"
+// import { env } from "@/env.mjs"
+// caafn sua lai
 
 export const freePlan: SubscriptionPlan = {
   name: "Free",
@@ -11,5 +12,5 @@ export const freePlan: SubscriptionPlan = {
 export const proPlan: SubscriptionPlan = {
   name: "PRO",
   description: "The PRO plan has unlimited posts.",
-  stripePriceId: env.STRIPE_PRO_MONTHLY_PLAN_ID || "",
+  stripePriceId: process.env.STRIPE_PRO_MONTHLY_PLAN_ID || "",
 }
