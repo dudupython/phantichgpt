@@ -1,12 +1,11 @@
-// "use client"
+"use client"
 
 import Link from "next/link"
 // import { User } from "next-auth"
-// import { currentUser } from "@clerk/nextjs";
-import { currentUser as getCurrentUser, useUser, SignOutButton } from '@clerk/nextjs';
-import type { User } from "@clerk/nextjs/api";
-
 // import { signOut } from "next-auth/react"
+// import { currentUser } from "@clerk/nextjs";
+// import type { User } from "@clerk/nextjs/api";
+import { useUser } from "@clerk/nextjs";
 
 import {
   DropdownMenu,
@@ -17,17 +16,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { UserAvatar } from "@/components/user-avatar"
 
-// interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-//   user: Pick<User, "firstname" | "image" | "email">
-// }
+interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
+  user: Pick<User, "name" | "image" | "email">
+}
 
-export async function UserAccountNav() {
-  const user: User | null = await getCurrentUser();
+export function UserAccountNav({ user }: UserAccountNavProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
         <UserAvatar
-          user={{ name: user.firstName || null, image: user.image || null }}
+          user={{ name: user.name || null, image: user.image || null }}
           className="h-8 w-8"
         />
       </DropdownMenuTrigger>
@@ -53,8 +51,16 @@ export async function UserAccountNav() {
           <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem asChild>
-         <SignOutButton />
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onSelect={(event) => {
+            event.preventDefault()
+            signOut({
+              callbackUrl: `${window.location.origin}/login`,
+            })
+          }}
+        >
+          Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

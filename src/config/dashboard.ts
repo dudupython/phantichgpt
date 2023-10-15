@@ -20,7 +20,7 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: "Architech",
-      href: "/dashboard",
+      href: "/dashboard/template",
       icon: "bot",
     },
     {

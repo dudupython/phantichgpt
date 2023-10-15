@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation"
 
 import { dashboardConfig } from "@/config/dashboard"
-// import { getCurrentUser } from "@/lib/session_clerk"
-import { currentUser as getCurrentUser } from '@clerk/nextjs';
-
+// import { getCurrentUser } from "@/lib/session"
+import { currentUser } from "@clerk/nextjs";
+import type { User } from "@clerk/nextjs/api";
 import { MainNav } from "@/components/main-nav"
 import { DashboardNav } from "@/components/nav"
 import { SiteFooter } from "@/components/site-footer"
-import { UserAccountNav } from "@/components/user-account-nav-ta"
+import { UserAccountNav } from "@/components/user-account-nav-clerk"
 
 interface DashboardLayoutProps {
   children?: React.ReactNode
@@ -16,8 +16,9 @@ interface DashboardLayoutProps {
 export default async function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
-  const user = await getCurrentUser()
-
+  // const user = await getCurrentUser()
+  const user: User | null = await currentUser();
+  
   if (!user) {
     return notFound()
   }
@@ -29,9 +30,9 @@ export default async function DashboardLayout({
           <MainNav items={dashboardConfig.mainNav} />
           <UserAccountNav
             user={{
-              firstName: user.firstName,
-              // image: user.image,
-              // email: user.email,
+              name: user.firstName,
+              image: user.imageUrl,
+              email: user.email,
             }}
           />
         </div>

@@ -7,6 +7,10 @@ import { cn } from "@/lib/utils"
 
 import { marketingConfig } from '@/config/marketing'
 import { Button, buttonVariants } from "@/components/ui/button"
+import { NavigationMenuLink } from "@/components/ui/navigation-menu"
+// import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
+
+
 import { MainNav } from "@/components/main-nav"
 import {
   ClerkProvider,
@@ -56,7 +60,7 @@ export default function RootLayout({
               Login
             </Link> */}
 
-          
+<div className='flex items-stretch gap-2'>
             <SignedIn>
             <Link href="/dashboard" >
             <Button>
@@ -64,14 +68,15 @@ export default function RootLayout({
               </Button>
             </Link>
             
-              <UserButton />
+            {/* <NavigationMenuLink></NavigationMenuLink> */}
+              <UserButton afterSignOutUrl="/" />
             </SignedIn>
             <SignedOut>
               <Button>
-                <SignInButton />
+               <SignInButton />
               </Button>
             </SignedOut>
-
+</div>
             </nav>
           </div>
         </header>
