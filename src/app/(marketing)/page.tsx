@@ -5,11 +5,21 @@ import { ProfileForm } from '@/components/first-form'
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import {
 
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
+
+
+let heroImages = ['/1.png', '/6.png', '/3.png', '/4.png', '/5.png', '/2.png'];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-5"> 
+    <>
+    {/* <main className="flex min-h-screen flex-col items-center justify-between p-5">  */}
     <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Link
@@ -28,24 +38,47 @@ export default function Home() {
             and enjoy photorealistic renders in just seconds!
           </p>
           <div className="space-x-4">
-            <Link href="/login" className={cn(buttonVariants({ size: "lg" }))}>
-              Get Started
-            </Link>
+          <SignedOut>
+              <Button>
+                {/* <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
+                Get Started
+              </Link> */}
+               <SignInButton>Get Started</SignInButton>
+              </Button>
+            </SignedOut>
+
+            
             <Link
-              href={siteConfig.links.github}
+              href={siteConfig.links.replicate}
               target="_blank"
               rel="noreferrer"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
-              GitHub
+              Learn more
             </Link>
           </div>
         </div>
       </section>
+      
+      <div className="container grid sm:grid-cols-3 grid-cols-2 gap-4 pt-10">
+            {heroImages.map((image, idx) => (
+              <Image
+                key={idx}
+                alt="image"
+                src={image}
+                width={500}
+                height={500}
+                className="rounded-lg"
+              />
+            ))}
+          </div>
+
+    
 
       {/* <ProfileForm  /> */}
     
       
-    </main>
+    {/* </main> */}
+    </>
   )
 }

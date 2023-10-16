@@ -5,7 +5,9 @@ import Link from "next/link"
 // import { signOut } from "next-auth/react"
 // import { currentUser } from "@clerk/nextjs";
 // import type { User } from "@clerk/nextjs/api";
-import { useUser } from "@clerk/nextjs";
+// import { useUser } from "@clerk/nextjs";
+import { useClerk } from "@clerk/clerk-react";
+import { useRouter } from 'next/navigation'
 
 import {
   DropdownMenu,
@@ -21,6 +23,9 @@ interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function UserAccountNav({ user }: UserAccountNavProps) {
+  const { signOut } = useClerk();
+  const router = useRouter()
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
@@ -51,7 +56,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
+        {/* <DropdownMenuItem
           className="cursor-pointer"
           onSelect={(event) => {
             event.preventDefault()
@@ -61,7 +66,11 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           }}
         >
           Sign out
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
+        <DropdownMenuItem>
+        <button onClick={() => signOut(() => router.push("/"))}>
+      Sign out
+    </button></DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
