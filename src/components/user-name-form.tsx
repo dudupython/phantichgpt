@@ -23,13 +23,13 @@ import { Label } from "@/components/ui/label"
 import { toast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons"
 
-interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  user: Pick<User, "id" | "name">
-}
+// interface UserNameFormProps extends React.HTMLAttributes<HTMLFormElement> {
+//   user: Pick<User, "id" | "name">
+// }
 
 type FormData = z.infer<typeof userNameSchema>
 
-export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
+export function UserNameForm({ user, className, ...props }: any) { //UserNameFormProps
   const router = useRouter()
   const {
     handleSubmit,
@@ -37,9 +37,9 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(userNameSchema),
-    defaultValues: {
-      name: user?.name || "",
-    },
+    // defaultValues: {
+    //   name: user?.name || "",
+    // },
   })
   const [isSaving, setIsSaving] = React.useState<boolean>(false)
 

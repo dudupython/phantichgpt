@@ -18,21 +18,23 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { UserAvatar } from "@/components/user-avatar"
 
-interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-  user: Pick<User, "name" | "image" | "email">
-}
+// interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
+//   user: Pick<User, "name" | "image" | "email">
+// }
 
-export function UserAccountNav({ user }: UserAccountNavProps) {
+export function UserAccountNav({ user }: any) { //UserAccountNavProps
   const { signOut } = useClerk();
   const router = useRouter()
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <UserAvatar
+      <DropdownMenuTrigger> 
+        {/* <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
           className="h-8 w-8"
-        />
+        /> 
+        Bỏ tạm ra thôi
+        */}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">

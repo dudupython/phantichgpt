@@ -33,7 +33,7 @@ export default async function DashboardPage() {
 //       updatedAt: "desc",
 //     },
 //   })
-
+const reptiles = ["alligator", "snake", "lizard"];
   return (
     <DashboardShell>
       <DashboardHeader heading="Posts" text="Create and manage posts.">
@@ -56,7 +56,12 @@ export default async function DashboardPage() {
             </div>
           ))
           ) : (<h1>ÁDF</h1>) }
+
+        {/* {user? ( user.emailAddresses.map((email) => <li>{email.emailAddress}</li>)) : ((<h1>ÁDF</h1>)) */}
         
+      
+        
+       
       </div>
       <SimpleForm />
 

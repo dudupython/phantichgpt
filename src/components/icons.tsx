@@ -24,11 +24,11 @@ import {
   User,
   X,
   Bot,
-  type Icon as LucideIcon,
+  // type Icon as LucideIcon,
 } from "lucide-react"
 
-export type Icon = LucideIcon
-
+// export type Icon = LucideIcon
+export type Icon = LucideProps
 export const Icons = {
   logo: Bot,
   close: X,

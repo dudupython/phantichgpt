@@ -32,7 +32,8 @@ export default async function DashboardLayout({
             user={{
               name: user.firstName,
               image: user.imageUrl,
-              email: user.email,
+              email: user.emailAddresses.map((email) => {email.emailAddress}),
+              
             }}
           />
         </div>

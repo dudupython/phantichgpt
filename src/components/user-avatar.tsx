@@ -4,11 +4,11 @@ import { AvatarProps } from "@radix-ui/react-avatar"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Icons } from "@/components/icons"
 
-interface UserAvatarProps extends AvatarProps {
-  user: Pick<User, "image" | "email">
-}
+// interface UserAvatarProps extends AvatarProps {
+//   user: Pick<User, "image" | "email">
+// }
 
-export function UserAvatar({ user, ...props }: UserAvatarProps) {
+export function UserAvatar({ user, ...props }: any) { //UserAvatarProps
   return (
     <Avatar {...props}>
       {user.image ? (

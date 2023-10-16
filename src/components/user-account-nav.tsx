@@ -1,8 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { User } from "next-auth"
-import { signOut } from "next-auth/react"
+// import { User } from "next-auth"
+// import { signOut } from "next-auth/react"
 
 import {
   DropdownMenu,
@@ -13,18 +13,18 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { UserAvatar } from "@/components/user-avatar"
 
-interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
-  user: Pick<User, "name" | "image" | "email">
-}
+// interface UserAccountNavProps extends React.HTMLAttributes<HTMLDivElement> {
+//   user: Pick<User, "name" | "image" | "email">
+// }
 
-export function UserAccountNav({ user }: UserAccountNavProps) {
+export function UserAccountNav({ user }: any) { //UserAccountNavProps
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <UserAvatar
+        {/* <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
           className="h-8 w-8"
-        />
+        /> */}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">
@@ -48,7 +48,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem
+        {/* <DropdownMenuItem
           className="cursor-pointer"
           onSelect={(event) => {
             event.preventDefault()
@@ -58,7 +58,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
           }}
         >
           Sign out
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
       </DropdownMenuContent>
     </DropdownMenu>
   )
