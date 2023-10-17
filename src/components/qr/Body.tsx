@@ -158,7 +158,7 @@ export default function Body({
                     <FormItem>
                       <FormLabel>URL</FormLabel>
                       <FormControl>
-                        <Input placeholder="roomgpt.io" {...field} />
+                        <Input placeholder="phantichgpt.com" {...field} />
                       </FormControl>
                       <FormDescription>
                         This is what your QR code will link to.

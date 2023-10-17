@@ -39,12 +39,12 @@ export default function Home() {
           </p>
           <div className="space-x-4">
           <SignedOut>
-              <Button>
-                {/* <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
+              {/* <Button> */}
+                <Link href="/sign-in" className={cn(buttonVariants({ size: "lg" }))}>
                 Get Started
-              </Link> */}
-               <SignInButton>Get Started</SignInButton>
-              </Button>
+              </Link>
+               {/* <SignInButton>Get Started</SignInButton> */}
+              {/* </Button> */}
             </SignedOut>
 
             
@@ -59,8 +59,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      <div className="container grid sm:grid-cols-3 grid-cols-2 gap-4 pt-10">
+      <div className="max-w-4xl mx-auto">
+      <div className="container grid sm:grid-cols-3 grid-cols-2 gap-4 pt-10"> 
             {heroImages.map((image, idx) => (
               <Image
                 key={idx}
@@ -71,6 +71,7 @@ export default function Home() {
                 className="rounded-lg"
               />
             ))}
+          </div>
           </div>
 
     
