@@ -68,9 +68,10 @@ export async function POST(request: NextRequest) {
 
   // convert output to a blob object
   const file = await fetch(imageUrl).then((res) => res.blob());
-
+  // const contentType = req.headers.get('content-type') || 'text/plain'
   // upload & store in Vercel Blob
-  const { url } = await put(`${id}.png`, file); //, { access: 'public' }
+  const { url } = await put(`${id}.png`, file,
+  { contentType, access: 'public' }); //, { access: 'public' }
 
   await kv.hset(id, {
     prompt: reqBody.prompt,

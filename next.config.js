@@ -4,16 +4,16 @@ const nextConfig = {
         domains: [
           'pbxt.replicate.delivery',
           'fngzth1bskhfpctb.public.blob.vercel-storage.com',
-          'upcdn.io'
+          'upcdn.io',
         ],
-        // remotePatterns: [
-        //   {
-        //     protocol: 'https',
-        //     hostname: 'assets.example.com',
-        //     port: '',
-        //     pathname: '/account123/**',
-        //   },
-        // ],
+        remotePatterns: [
+          {
+            protocol: 'https',
+            hostname: 'phantichgpt.vercel.app',
+            port: '',
+            pathname: '/',
+          },
+        ],
       },
 }
 
