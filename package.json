@@ -23,6 +23,7 @@
     "@tensorflow/tfjs": "^4.11.0",
     "@upstash/ratelimit": "^0.4.4",
     "@upstash/redis": "^1.23.3",
+    "@vercel/analytics": "^1.1.1",
     "@vercel/blob": "^0.0.2",
     "@vercel/kv": "^0.2.3",
     "class-variance-authority": "^0.7.0",

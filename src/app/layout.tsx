@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
-import Link from "next/link"
+// import Link from "next/link"
+import { Analytics } from '@vercel/analytics/react';
 
 import type { Metadata } from 'next'
 import { Inter as FontSans } from "next/font/google"
@@ -7,19 +8,18 @@ import localFont from "next/font/local"
 
 import { cn } from "@/lib/utils"
 
-import { marketingConfig } from '@/config/marketing'
-import { Button, buttonVariants } from "@/components/ui/button"
-import { NavigationMenuLink } from "@/components/ui/navigation-menu"
+// import { marketingConfig } from '@/config/marketing'
+// import { Button, buttonVariants } from "@/components/ui/button"
+// import { NavigationMenuLink } from "@/components/ui/navigation-menu"
 // import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
-
-import { MainNav } from "@/components/main-nav"
+// import { MainNav } from "@/components/main-nav"
 import {
   ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
+  // SignedIn,
+  // SignedOut,
+  // SignInButton,
+  // UserButton,
 } from "@clerk/nextjs";
 
 
@@ -76,6 +76,7 @@ export default function RootLayout({
 
         {children}
       {/* </div> */}
+      <Analytics />
       </body>
     </html>
     </ClerkProvider>
