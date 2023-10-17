@@ -5,6 +5,7 @@ const nextConfig = {
           'pbxt.replicate.delivery',
           'fngzth1bskhfpctb.public.blob.vercel-storage.com',
           'upcdn.io',
+          'public.blob.vercel-storage.com'
         ],
         remotePatterns: [
           {
