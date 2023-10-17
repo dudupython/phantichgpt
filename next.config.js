@@ -7,14 +7,14 @@ const nextConfig = {
           'upcdn.io',
           'public.blob.vercel-storage.com'
         ],
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'phantichgpt.vercel.app',
-            port: '',
-            pathname: '/',
-          },
-        ],
+        // remotePatterns: [
+        //   {
+        //     protocol: 'https',
+        //     hostname: 'phantichgpt.vercel.app',
+        //     port: '',
+        //     pathname: '/',
+        //   },
+        // ],
       },
 }
 

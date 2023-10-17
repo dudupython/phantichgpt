@@ -4,8 +4,6 @@ import { NextRequest } from 'next/server';
 // import { Ratelimit } from '@upstash/ratelimit';
 import { kv } from '@vercel/kv';
 import { put } from '@vercel/blob';
-// import type { PutBlobResult } from '@vercel/blob';
-
 import { nanoid } from '@/utils/utils';
 
 /**
@@ -70,7 +68,7 @@ export async function POST(request: NextRequest) {
   const file = await fetch(imageUrl).then((res) => res.blob());
 
   // upload & store in Vercel Blob
-  const { url } = await put(`${id}.png`, file); //, { access: 'public' }
+  const { url } = await put(`${id}.png`, file, { access: 'public' });
 
   await kv.hset(id, {
     prompt: reqBody.prompt,
