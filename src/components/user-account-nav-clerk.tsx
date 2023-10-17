@@ -7,6 +7,9 @@ import Link from "next/link"
 // import type { User } from "@clerk/nextjs/api";
 // import { useUser } from "@clerk/nextjs";
 import { useClerk } from "@clerk/clerk-react";
+import { useUser } from "@clerk/nextjs";
+import { UserProfile } from "@clerk/nextjs";
+
 import { useRouter } from 'next/navigation'
 
 import {
@@ -22,31 +25,39 @@ import { UserAvatar } from "@/components/user-avatar"
 //   user: Pick<User, "name" | "image" | "email">
 // }
 
-export function UserAccountNav({ user }: any) { //UserAccountNavProps
+export function UserAccountNav() { //UserAccountNavProps
   const { signOut } = useClerk();
   const router = useRouter()
+  const { isSignedIn, user, isLoaded } = useUser();
+  
+  if (!isLoaded) {
+    return null;
+  }
+  if (isSignedIn) {
+
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger> 
-        {/* <UserAvatar
-          user={{ name: user.name || null, image: user.image || null }}
+        <UserAvatar
+          user={{ name: user.fullName || null, image: user.imageUrl || null }}
           className="h-8 w-8"
         /> 
-        Bỏ tạm ra thôi
-        */}
+        
+       
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
-            {user.name && <p className="font-medium">{user.name}</p>}
-            {user.email && (
+            {user.fullName && <p className="font-medium">{user.fullName}</p>}
+            {/* {user.primaryEmailAddress && (
               <p className="w-[200px] truncate text-sm text-muted-foreground">
-                {user.email}
+                {user.primaryEmailAddress}
               </p>
-            )}
+            )} */}
           </div>
         </div>
+      
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
           <Link href="/dashboard">Dashboard</Link>
@@ -58,17 +69,7 @@ export function UserAccountNav({ user }: any) { //UserAccountNavProps
           <Link href="/dashboard/settings">Settings</Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        {/* <DropdownMenuItem
-          className="cursor-pointer"
-          onSelect={(event) => {
-            event.preventDefault()
-            signOut({
-              callbackUrl: `${window.location.origin}/login`,
-            })
-          }}
-        >
-          Sign out
-        </DropdownMenuItem> */}
+       
         <DropdownMenuItem>
         <button onClick={() => signOut(() => router.push("/"))}>
       Sign out
@@ -76,4 +77,6 @@ export function UserAccountNav({ user }: any) { //UserAccountNavProps
       </DropdownMenuContent>
     </DropdownMenu>
   )
+}
+return <div>Not signed in</div>;
 }

@@ -27,6 +27,23 @@ export type SidebarNavItem = {
     }
 )
 
+export type MobileNavItem = NavItem
+// export type MobileNavItem = {
+//   title: string
+//   disabled?: boolean
+//   external?: boolean
+//   icon?: keyof typeof Icons
+// } & (
+//   | {
+//       href: string
+//       items?: never
+//     }
+//   | {
+//       href?: string
+//       items: NavLink[]
+//     }
+// )
+
 export type SiteConfig = {
   name: string
   description: string
@@ -51,6 +68,7 @@ export type MarketingConfig = {
 export type DashboardConfig = {
   mainNav: MainNavItem[]
   sidebarNav: SidebarNavItem[]
+  mobileNav:  MobileNavItem[]
 }
 
 export type SubscriptionPlan = {

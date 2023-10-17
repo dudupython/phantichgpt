@@ -7,10 +7,23 @@ export const dashboardConfig: DashboardConfig = {
     //   href: "/docs",
     // },
     {
-      title: "Support",
+      title: "Support xyz",
       href: "/support",
       disabled: true,
     },
+  ],
+  mobileNav: [
+    {
+      title: "Qr Code",
+    href: "/qr-code",
+    disabled: false,
+    },
+    {
+      title: "Support",
+    href: "/support",
+    disabled: true,
+    },
+
   ],
   sidebarNav: [
     {
