@@ -7,6 +7,8 @@ import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
 import RhfWithZod from '@/components/myComponent/rhf-zod'
 import SimpleForm from '@/components/myComponent/simple-form'
+import LinkedinBio from '@/components/myComponent/linkedin-bio'
+
 
 export const metadata = {
   title: "Dashboard",
@@ -36,11 +38,11 @@ export default async function DashboardPage() {
 const reptiles = ["alligator", "snake", "lizard"];
   return (
     <DashboardShell>
-      <DashboardHeader heading="Posts" text="Create and manage posts.">
-      </DashboardHeader>
-      <div className="grid gap-8">
-        
-        {user?.firstName} {user?.lastName} {user?.imageUrl} 
+      {/* <DashboardHeader heading="Posts" text="Create and manage posts.">
+      </DashboardHeader> */}
+      <div className="text-center">
+      <LinkedinBio />
+        {/* {user?.firstName} {user?.lastName} {user?.imageUrl} 
         {user ? (<h1>xyz</h1>) : (<h1>???</h1>)}
         
         
@@ -55,19 +57,13 @@ const reptiles = ["alligator", "snake", "lizard"];
             )} 
             </div>
           ))
-          ) : (<h1>ÁDF</h1>) }
+          ) : (<h1>ÁDF</h1>) } */}
 
         {/* {user? ( user.emailAddresses.map((email) => <li>{email.emailAddress}</li>)) : ((<h1>ÁDF</h1>)) */}
-        
-      
-        
+
        
       </div>
-      <SimpleForm />
 
-      
-      
-    
     
     </DashboardShell>
   )

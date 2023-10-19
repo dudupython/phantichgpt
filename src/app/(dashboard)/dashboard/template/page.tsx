@@ -6,6 +6,8 @@ import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
 import RhfWithZod from '@/components/myComponent/rhf-zod'
 import SimpleForm from '@/components/myComponent/simple-form'
+import OpenAiComponent from '@/components/myComponent/openai-component'
+
 
 export const metadata = {
   title: "Dashboard",
@@ -40,7 +42,9 @@ export default async function DashboardPage() {
       <div className="grid gap-8">
         {user?.firstName} {user?.lastName}
       </div>
+      <OpenAiComponent />
       <SimpleForm />
+      
 
       
       

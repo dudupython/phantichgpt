@@ -1,14 +1,14 @@
-"use client"
-
+'use client'
 import Link from "next/link"
 // import { User } from "next-auth"
 // import { signOut } from "next-auth/react"
 // import { currentUser } from "@clerk/nextjs";
 // import type { User } from "@clerk/nextjs/api";
-// import { useUser } from "@clerk/nextjs";
-import { useClerk } from "@clerk/clerk-react";
 import { useUser } from "@clerk/nextjs";
-import { UserProfile } from "@clerk/nextjs";
+
+import { useClerk } from "@clerk/clerk-react";
+// import { useUser } from "@clerk/nextjs";
+// import { UserProfile } from "@clerk/nextjs";
 
 import { useRouter } from 'next/navigation'
 
