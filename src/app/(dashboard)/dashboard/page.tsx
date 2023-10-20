@@ -1,12 +1,12 @@
 import { redirect } from "next/navigation"
 // import { db } from "@/lib/db"
-import { currentUser as getCurrentUser } from '@clerk/nextjs';
-import type { User } from "@clerk/nextjs/api";
+// import { currentUser as getCurrentUser } from '@clerk/nextjs';
+// import type { User } from "@clerk/nextjs/api";
 
-import { DashboardHeader } from "@/components/header"
+// import { DashboardHeader } from "@/components/header"
 import { DashboardShell } from "@/components/shell"
-import RhfWithZod from '@/components/myComponent/rhf-zod'
-import SimpleForm from '@/components/myComponent/simple-form'
+// import RhfWithZod from '@/components/myComponent/rhf-zod'
+// import SimpleForm from '@/components/myComponent/simple-form'
 import LinkedinBio from '@/components/myComponent/linkedin-bio'
 
 
@@ -16,7 +16,7 @@ export const metadata = {
 
 export default async function DashboardPage() {
   // const user = await getCurrentUser()
-  const user: User | null = await getCurrentUser();
+  // const user: User | null = await getCurrentUser();
 //   if (!user) {
 //     redirect(authOptions?.pages?.signIn || "/login")
 //   }

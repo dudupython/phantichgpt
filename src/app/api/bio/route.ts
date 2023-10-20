@@ -13,15 +13,15 @@ export async function POST(req: Request) {
   // Extract the `messages` from the body of the request
 //   const { messages } = await req.json();
   const { vibe, bio } = await req.json();
- 
+  console.log(vibe, bio)
   // Ask OpenAI for a streaming chat completion given the prompt
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     stream: true,
-    messages: [
+    messages: [ //{'role': 'system', 'content': 'you are expert hiring manager with 10 year of experiences, you will help generate linkedin profile when user input their activities below'},
         {
             role: 'user',
-            content: `Generate 2 ${vibe} twitter biographies with no hashtags and clearly labeled "1." and "2.". ${
+            content: `Generate 2 ${vibe} linkedin profile with no hashtags and clearly labeled "1." and "2.". ${
               vibe === 'Funny'
                 ? "Make sure there is a joke in there and it's a little ridiculous."
                 : null
@@ -31,6 +31,11 @@ export async function POST(req: Request) {
             }`,
           },
     ],
+    max_tokens: 200,
+    temperature: 0, // you want absolute certainty for spell check
+    top_p: 1,
+    frequency_penalty: 1,
+    presence_penalty: 1,
   });
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
