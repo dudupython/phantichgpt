@@ -25,7 +25,7 @@ type BioType = string
 export default function Page() {
     const [bio, setBio] = useState<BioType>('');
     const [vibe, setVibe] = useState<VibeType>('Professional');
-    // const bioRef = useRef<null | HTMLDivElement>(null);
+    const bioRef = useRef<null | HTMLDivElement>(null);
   
     // const scrollToBios = () => {
     //   if (bioRef.current !== null) {
@@ -141,8 +141,8 @@ export default function Page() {
           <hr className="h-px bg-gray-700 border-1 dark:bg-gray-700" />
           
           <output className="space-y-10 my-10">
-            {completion}
-            {/* {completion && (
+            {/* {completion} */}
+            {completion && (
               <>
                 <div>
                   <h2
@@ -154,7 +154,7 @@ export default function Page() {
                 </div>
                 <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
                   {completion
-                    .substring(completion.indexOf('1') + 3)
+                    .substring(completion.indexOf('1.') + 3)
                     .split('2.')
                     .map((generatedBio) => {
                       return (
@@ -174,7 +174,7 @@ export default function Page() {
                     })}
                 </div>
               </>
-            )} */}
+            )}
           </output>
 
 

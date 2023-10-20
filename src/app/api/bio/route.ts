@@ -33,9 +33,9 @@ export async function POST(req: Request) {
     ],
     max_tokens: 200,
     temperature: 0, // you want absolute certainty for spell check
-    top_p: 1,
-    frequency_penalty: 1,
-    presence_penalty: 1,
+    // top_p: 1,
+    // frequency_penalty: 1,
+    // presence_penalty: 1,
   });
   // Convert the response into a friendly text-stream
   const stream = OpenAIStream(response);
