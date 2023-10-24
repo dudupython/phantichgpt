@@ -1,5 +1,5 @@
-// import { PrismaClient } from "@prisma/client"
-import { PrismaClient } from '@prisma/client/edge'
+import { PrismaClient } from "@prisma/client"
+// import { PrismaClient } from '@prisma/client/edge'
 
 declare global {
   // eslint-disable-next-line no-var
@@ -12,10 +12,12 @@ if (process.env.NODE_ENV === "production") {
   prisma = new PrismaClient()
 } else {
   if (!global.cachedPrisma) {
-    global.cachedPrisma = new PrismaClient()
+    global.cachedPrisma = new PrismaClient(
+   
+    )
   }
   prisma = global.cachedPrisma
 }
 
-// export const prismadb = prisma
-export default prisma;
+export const db = prisma
+// export default prisma;
