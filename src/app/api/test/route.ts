@@ -1,8 +1,13 @@
 import OpenAI from 'openai';
-// import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { OpenAIStream, StreamingTextResponse } from 'ai';
- 
-export const runtime = 'edge';
+import { kv } from '@vercel/kv'
+import { Ratelimit } from '@upstash/ratelimit'
+// import { currentUser } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs';
+import { checkSubscription, checkUserLimit, incrementUserLimit } from "@/lib/user-limit";
+
+// export const runtime = 'edge';
 const openai = new OpenAI({
   apiKey: process.env["OPENAI_API_KEY"]
 });
@@ -37,6 +42,51 @@ const openai = new OpenAI({
 // }
 
 export async function POST(req: Request) {
+  //TA add
+  // const user = await currentUser();
+  const { userId } : { userId: string | null } = auth();
+  
+  if(!userId){
+    return new Response("Unauthorized", { status: 401 });
+  }
+
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    const ip = req.headers.get('x-forwarded-for')
+    const ratelimit = new Ratelimit({
+      redis: kv,
+      // rate limit to 5 requests per 10 seconds
+      limiter: Ratelimit.slidingWindow(2, '10 s'),
+      analytics: true,
+    })
+    // Or use a userID, apiKey or ip address for individual limits.
+    // const identifier = "api";
+
+    const { success, limit, reset, remaining } = await ratelimit.limit(
+      `ratelimit_${ip}`
+      // identifier
+    )
+
+    // limit user=5
+    const reachToLimit = await checkUserLimit();
+    // const isPro = await checkSubscription();
+
+    if (!reachToLimit) { // && !isPro
+      return  NextResponse.json({ message: "You are reach to limit. Please upgrade to higher plan.", status: 403 }, { status: 403 });
+    }
+    
+
+
+    if (!success) {
+      return new Response('You have reached your request limit for the day.', {
+        status: 429,
+        headers: {
+          'X-RateLimit-Limit': limit.toString(),
+          'X-RateLimit-Remaining': remaining.toString(),
+          'X-RateLimit-Reset': reset.toString()
+        }
+      })
+    }
+  }
     // Extract the `prompt` from the body of the request
     const { prompt } = await req.json();
    
@@ -62,7 +112,11 @@ export async function POST(req: Request) {
       presence_penalty: 1,
     });
    
-    const stream = OpenAIStream(response);
+    const stream = OpenAIStream(response, {
+      onCompletion: async () => {
+        await incrementUserLimit();
+      }
+    });
    
     return new StreamingTextResponse(stream);
   }

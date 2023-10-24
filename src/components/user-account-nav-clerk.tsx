@@ -5,9 +5,7 @@ import Link from "next/link"
 // import { currentUser } from "@clerk/nextjs";
 // import type { User } from "@clerk/nextjs/api";
 import { useUser } from "@clerk/nextjs";
-
 import { useClerk } from "@clerk/clerk-react";
-// import { useUser } from "@clerk/nextjs";
 // import { UserProfile } from "@clerk/nextjs";
 
 import { useRouter } from 'next/navigation'
@@ -50,11 +48,12 @@ export function UserAccountNav() { //UserAccountNavProps
         <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
             {user.fullName && <p className="font-medium">{user.fullName}</p>}
-            {/* {user.primaryEmailAddress && (
+            {user?.emailAddresses?.[0]?.emailAddress && (
               <p className="w-[200px] truncate text-sm text-muted-foreground">
-                {user.primaryEmailAddress}
+                {user?.emailAddresses?.[0]?.emailAddress}
               </p>
-            )} */}
+            )}
+            
           </div>
         </div>
       

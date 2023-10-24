@@ -7,6 +7,7 @@ import { DashboardShell } from "@/components/shell"
 import RhfWithZod from '@/components/myComponent/rhf-zod'
 import SimpleForm from '@/components/myComponent/simple-form'
 import OpenAiComponent from '@/components/myComponent/openai-component'
+import AvatarUploadPage from '@/components/myComponent/my-upload'
 
 
 export const metadata = {
@@ -39,11 +40,12 @@ export default async function DashboardPage() {
     <DashboardShell>
       <DashboardHeader heading="Posts" text="Create and manage posts.">
       </DashboardHeader>
+      {/* <AvatarUploadPage /> */}
       <div className="grid gap-8">
         {user?.firstName} {user?.lastName}
       </div>
       <OpenAiComponent />
-      <SimpleForm />
+      {/* <SimpleForm /> */}
       
 
       

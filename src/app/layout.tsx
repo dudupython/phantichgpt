@@ -1,11 +1,9 @@
 import '@/styles/globals.css'
 // import Link from "next/link"
 import { Analytics } from '@vercel/analytics/react';
-
 import type { Metadata } from 'next'
 import { Inter as FontSans } from "next/font/google"
 import localFont from "next/font/local"
-
 import { cn } from "@/lib/utils"
 
 // import { marketingConfig } from '@/config/marketing'
@@ -16,11 +14,10 @@ import { cn } from "@/lib/utils"
 // import { MainNav } from "@/components/main-nav"
 import {
   ClerkProvider,
-  // SignedIn,
-  // SignedOut,
-  // SignInButton,
-  // UserButton,
 } from "@clerk/nextjs";
+
+import { ThemeProvider } from "@/components/theme-provider"
+
 
 let title = 'QrGPT - QR Code Generator';
 let description = 'Generate your AI QR Code in seconds';
@@ -71,7 +68,7 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider  >
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
     <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -79,6 +76,7 @@ export default function RootLayout({
           fontHeading.variable
         )}
       >
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       {/* <body className={inter.className}>
         <div className="fixed h-screen w-full bg-gradient-to-br from-violet-100 via-teal-50 to-amber-100">
          */}
@@ -87,6 +85,7 @@ export default function RootLayout({
         {children}
       {/* </div> */}
       <Analytics />
+      </ThemeProvider>
       </body>
     </html>
     </ClerkProvider>

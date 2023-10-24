@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <>
    
-       <div className=" bg-gradient-to-br from-violet-100 via-teal-50 to-amber-100"> {/*h-screen w-full */}
+       <div className="bg-gradient-to-br dark:bg-slate-800 from-violet-100 via-teal-50 to-amber-100 "> {/*h-screen w-full */}
         
         <header className="container z-40 bg-transparent">
           <div className="flex h-20 items-center justify-between py-6">

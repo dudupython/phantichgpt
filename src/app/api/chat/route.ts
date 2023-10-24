@@ -10,6 +10,8 @@ const openai = new OpenAI({
 export const runtime = 'edge';
  
 export async function POST(req: Request) {
+  //TA add
+  
   // Extract the `messages` from the body of the request
   const { messages } = await req.json();
  
