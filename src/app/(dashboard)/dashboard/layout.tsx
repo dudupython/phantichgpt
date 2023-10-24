@@ -10,7 +10,9 @@ import { MainNav } from "@/components/main-nav"
 import { DashboardNav } from "@/components/nav"
 import { SiteFooter } from "@/components/site-footer"
 import { UserAccountNav } from "@/components/user-account-nav-clerk"
+import { getUserLimitCount } from "@/lib/user-limit";
 // import { UserAccount } from "@/components/user-account"
+import CountLimit from "@/components/myComponent/CountLimit"
 
     
 interface DashboardLayoutProps {
@@ -27,7 +29,8 @@ export default async function DashboardLayout({
   // if (!user) {
   //   return notFound()
   // }
-  
+  //apiLimitCount={apiLimitCount} 
+  const apiLimitCount = await getUserLimitCount();
   return (
     <div className="flex min-h-screen flex-col space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
@@ -36,15 +39,21 @@ export default async function DashboardLayout({
             // mainNav
             } />
           {/* <UserAccount /> */}
-          <UserAccountNav
-            // user={{
-            //   name: user.firstName,
-            //   image: user.imageUrl,
-            //   email: user.emailAddresses.map((email) => {email.emailAddress}), //primaryEmailAddress 
-              
-            // }}
-          />
+          <div className='flex items-center space-x-4'>
+            
+            <CountLimit apiLimitCount={apiLimitCount} /> 
+            <UserAccountNav
+              // user={{
+              //   name: user.firstName,
+              //   image: user.imageUrl,
+              //   email: user.emailAddresses.map((email) => {email.emailAddress}), //primaryEmailAddress 
+                
+              // }}
+            />
+          
+          </div>
         </div>
+        
       </header>
       <div className="container grid flex-1 gap-12 md:grid-cols-[200px_1fr]">
         <aside className="hidden w-[200px] flex-col md:flex">
