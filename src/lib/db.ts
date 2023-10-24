@@ -13,7 +13,9 @@ if (process.env.NODE_ENV === "production") {
 } else {
   if (!global.cachedPrisma) {
     global.cachedPrisma = new PrismaClient(
-   
+      {
+        datasources: { db: { url: process.env.DATABASE_URL } }
+      }
     )
   }
   prisma = global.cachedPrisma
