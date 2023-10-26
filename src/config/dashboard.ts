@@ -3,25 +3,35 @@ import { DashboardConfig } from "@/types"
 export const dashboardConfig: DashboardConfig = {
   mainNav: [
     // {
-    //   title: "Documentation",
-    //   href: "/docs",
+    //   title: "Theo dõi",
+    //   href: "/watching",
     // },
     {
-      title: "Support xyz",
-      href: "/support",
-      disabled: true,
+      title: "Mua/bán",
+      href: "/reason",
+      disabled: false,
     },
   ],
   mobileNav: [
     {
-      title: "Linkedin profile",
-    href: "/",
+      title: "Theo dõi",
+      href: "/watching",
+    },
+    {
+      title: "Đánh giá",
+    href: "/risk",
+    disabled: false,
+    },
+    
+    {
+      title: "Mua/bán",
+    href: "/reason",
     disabled: false,
     },
     {
-      title: "Support",
-    href: "/support",
-    disabled: true,
+      title: "Gen profile",
+    href: "/dashboard",
+    disabled: false,
     },
 
   ],

@@ -45,7 +45,7 @@ export default function RootLayout({
               Login
             </Link> */}
 
-<div className='flex items-stretch gap-2'>
+<div className='flex items-center space-x-4'>
             <SignedIn>
             <Link href="/dashboard" >
             <Button>
