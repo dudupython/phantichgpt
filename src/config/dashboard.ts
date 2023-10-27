@@ -42,26 +42,26 @@ export const dashboardConfig: DashboardConfig = {
       href: "/dashboard",
       icon: "bot",
     },
-    {
-      title: "Qr Code",
-      href: "/dashboard/qr-code",
-      icon: "bot",
-    },
-    {
-      title: "test",
-      href: "/dashboard/template",
-      icon: "bot",
-    },
+    // {
+    //   title: "Qr Code",
+    //   href: "/dashboard/qr-code",
+    //   icon: "bot",
+    // },
+    // {
+    //   title: "test",
+    //   href: "/dashboard/template",
+    //   icon: "bot",
+    // },
    
-    {
-      title: "Billing",
-      href: "/dashboard/billing",
-      icon: "billing",
-    },
-    {
-      title: "Settings",
-      href: "/dashboard/settings",
-      icon: "settings",
-    },
+    // {
+    //   title: "Billing",
+    //   href: "/dashboard/billing",
+    //   icon: "billing",
+    // },
+    // {
+    //   title: "Settings",
+    //   href: "/dashboard/settings",
+    //   icon: "settings",
+    // },
   ],
 }
