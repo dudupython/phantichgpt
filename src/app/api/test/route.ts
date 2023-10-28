@@ -5,7 +5,8 @@ import { kv } from '@vercel/kv'
 import { Ratelimit } from '@upstash/ratelimit'
 // import { currentUser } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs';
-import { checkSubscription, checkUserLimit, incrementUserLimit } from "@/lib/user-limit";
+// import { checkSubscription, checkUserLimit, incrementUserLimit } from "@/lib/user-limit";
+import { checkUserLimit, incrementUserLimit } from "@/lib/user-limit copy";
 
 // export const runtime = 'edge';
 const openai = new OpenAI({

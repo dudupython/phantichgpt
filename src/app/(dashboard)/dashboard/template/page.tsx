@@ -8,7 +8,7 @@ import RhfWithZod from '@/components/myComponent/rhf-zod'
 import SimpleForm from '@/components/myComponent/simple-form'
 import OpenAiComponent from '@/components/myComponent/openai-component'
 import AvatarUploadPage from '@/components/myComponent/my-upload'
-
+import {hello} from '@/db/index-neon'
 
 export const metadata = {
   title: "Dashboard",
@@ -16,6 +16,8 @@ export const metadata = {
 
 export default async function DashboardPage() {
   const user = await getCurrentUser()
+  const dbHello = await hello()
+  console.log('dbhello', dbHello)
 
 //   if (!user) {
 //     redirect(authOptions?.pages?.signIn || "/login")
@@ -55,3 +57,5 @@ export default async function DashboardPage() {
     </DashboardShell>
   )
 }
+
+// export const runtime='edge'
