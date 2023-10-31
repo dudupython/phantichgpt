@@ -2,7 +2,9 @@ import '@/styles/globals.css'
 // import Link from "next/link"
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next'
-import { Inter as FontSans } from "next/font/google"
+// import { Inter as FontSans } from "next/font/google"
+import { GeistSans as FontSans } from "geist/font";
+
 import localFont from "next/font/local"
 import { cn } from "@/lib/utils"
 
@@ -51,10 +53,10 @@ export const metadata: Metadata = {
 
 // const inter = Inter({ subsets: ['latin'] })
 
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
+// const fontSans = FontSans({
+//   subsets: ["latin"],
+//   variable: "--font-sans",
+// })
 
 const fontHeading = localFont({
   src: "../styles/fonts/CalSans-SemiBold.woff2",
@@ -86,7 +88,8 @@ export default function RootLayout({
     <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          // fontSans.variable,
+          FontSans,
           fontHeading.variable
         )}
       >

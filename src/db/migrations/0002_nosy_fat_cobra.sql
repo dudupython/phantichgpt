@@ -1,0 +1,1 @@
+ALTER TABLE `UserLimit` DROP COLUMN `updatedAt`;

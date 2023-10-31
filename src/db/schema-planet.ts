@@ -7,7 +7,6 @@ export const userLimit = mysqlTable("UserLimit", {
 	userId: varchar("userId", { length: 191 }).notNull(),
 	count: int("count").default(0).notNull(),
 	createdAt: datetime("createdAt", { mode: 'string', fsp: 3 }).default(sql`CURRENT_TIMESTAMP(3)`).notNull(),
-	updatedAt: datetime("updatedAt", { mode: 'string', fsp: 3 }).notNull(),
 },
 (table) => {
 	return {
@@ -30,3 +29,9 @@ export const userSubscription = mysqlTable("UserSubscription", {
 		userSubscriptionStripeSubscriptionIdKey: unique("UserSubscription_stripe_subscription_id_key").on(table.stripeSubscriptionId),
 	}
 });
+
+
+import { InferSelectModel, InferInsertModel } from 'drizzle-orm'
+
+export type UserLimit = InferSelectModel<typeof userLimit>
+export type NewUserLimit = InferInsertModel<typeof userLimit>

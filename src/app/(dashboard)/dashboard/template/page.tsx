@@ -8,7 +8,7 @@ import RhfWithZod from '@/components/myComponent/rhf-zod'
 import SimpleForm from '@/components/myComponent/simple-form'
 import OpenAiComponent from '@/components/myComponent/openai-component'
 import AvatarUploadPage from '@/components/myComponent/my-upload'
-import {hello} from '@/db/index-neon'
+import {hello} from '@/db/index'
 
 export const metadata = {
   title: "Dashboard",

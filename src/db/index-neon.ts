@@ -8,10 +8,11 @@ const sql = neon(process.env.DRIZZLE_DATABASE_URL!);
 export const db = drizzle(sql);
  
 // const result = await db.select().from(...);
-export async function hello() {
-    const [dbResponse] = await sql`SELECT NOW();`
-    return dbResponse
-}
+
+// export async function hello() {
+//     const [dbResponse] = await sql`SELECT NOW();`
+//     return dbResponse
+// }
 
 // const main = async () => {
 // try {

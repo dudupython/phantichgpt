@@ -6,9 +6,9 @@ import { Ratelimit } from '@upstash/ratelimit'
 // import { currentUser } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs';
 // import { checkSubscription, checkUserLimit, incrementUserLimit } from "@/lib/user-limit";
-import { checkUserLimit, incrementUserLimit } from "@/lib/user-limit copy";
+import { checkUserLimit, incrementUserLimit } from "@/lib/user-limit";
 
-// export const runtime = 'edge';
+export const runtime = 'edge';
 const openai = new OpenAI({
   apiKey: process.env["OPENAI_API_KEY"]
 });

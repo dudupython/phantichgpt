@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx prisma generate && next dev",
-    "build": "npx prisma generate && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "generate:pg": "npx drizzle-kit generate:pg",
     "generate:mysql": "npx drizzle-kit generate:mysql",
@@ -43,6 +43,7 @@
     "dotenv": "^16.3.1",
     "drizzle-orm": "^0.28.6",
     "framer-motion": "^10.16.4",
+    "geist": "^1.0.0",
     "lucide-react": "^0.287.0",
     "next": "14.0.0",
     "next-themes": "^0.2.1",
