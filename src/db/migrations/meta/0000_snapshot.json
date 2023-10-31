@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "mysql",
-  "id": "26a44ee6-6ef9-44d6-85de-6371c1d66c70",
+  "id": "8c9021e4-64f1-4b4a-992c-457663badc44",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "UserLimit": {
@@ -9,9 +9,9 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "varchar(191)",
+          "type": "varchar(128)",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "autoincrement": false
         },
         "userId": {
@@ -36,19 +36,19 @@
           "notNull": true,
           "autoincrement": false,
           "default": "CURRENT_TIMESTAMP(3)"
-        },
-        "updatedAt": {
-          "name": "updatedAt",
-          "type": "datetime(3)",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "UserLimit_userId_key": {
+          "name": "UserLimit_userId_key",
+          "columns": [
+            "userId"
+          ]
+        }
+      }
     },
     "UserSubscription": {
       "name": "UserSubscription",
@@ -99,7 +99,26 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "UserSubscription_userId_key": {
+          "name": "UserSubscription_userId_key",
+          "columns": [
+            "userId"
+          ]
+        },
+        "UserSubscription_stripe_customer_id_key": {
+          "name": "UserSubscription_stripe_customer_id_key",
+          "columns": [
+            "stripe_customer_id"
+          ]
+        },
+        "UserSubscription_stripe_subscription_id_key": {
+          "name": "UserSubscription_stripe_subscription_id_key",
+          "columns": [
+            "stripe_subscription_id"
+          ]
+        }
+      }
     }
   },
   "schemas": {},

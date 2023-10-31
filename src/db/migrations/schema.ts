@@ -3,11 +3,10 @@ import { sql } from "drizzle-orm"
 
 
 export const userLimit = mysqlTable("UserLimit", {
-	id: varchar("id", { length: 191 }).notNull(),
+	id: varchar("id", { length: 128 }),
 	userId: varchar("userId", { length: 191 }).notNull(),
 	count: int("count").default(0).notNull(),
 	createdAt: datetime("createdAt", { mode: 'string', fsp: 3 }).default(sql`CURRENT_TIMESTAMP(3)`).notNull(),
-	updatedAt: datetime("updatedAt", { mode: 'string', fsp: 3 }).notNull(),
 },
 (table) => {
 	return {

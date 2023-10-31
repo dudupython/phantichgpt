@@ -21,6 +21,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@kinde-oss/kinde-auth-nextjs": "^1.8.24",
     "@neondatabase/serverless": "^0.6.0",
+    "@paralleldrive/cuid2": "^2.2.2",
     "@planetscale/database": "^1.11.0",
     "@prisma/adapter-planetscale": "5.4.2",
     "@prisma/client": "^5.5.2",

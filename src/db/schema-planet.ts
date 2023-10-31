@@ -1,9 +1,10 @@
 import { mysqlTable, mysqlSchema, AnyMySqlColumn, unique, varchar, int, datetime } from "drizzle-orm/mysql-core"
 import { sql } from "drizzle-orm"
+import { createId } from '@paralleldrive/cuid2';
 
 
 export const userLimit = mysqlTable("UserLimit", {
-	id: varchar("id", { length: 191 }).notNull(),
+	id: varchar('id', { length: 128 }).$defaultFn(() => createId()),
 	userId: varchar("userId", { length: 191 }).notNull(),
 	count: int("count").default(0).notNull(),
 	createdAt: datetime("createdAt", { mode: 'string', fsp: 3 }).default(sql`CURRENT_TIMESTAMP(3)`).notNull(),

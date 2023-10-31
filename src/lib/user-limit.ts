@@ -1,8 +1,8 @@
 import { auth } from "@clerk/nextjs";
-import prismadb from "@/lib/prismadb";
-import  {db} from "@/db/index";
+// import prismadb from "@/lib/prismadb";
+import  {db,} from "@/db/index";
 import { eq, sql } from 'drizzle-orm'
-import { userLimit } from '@/db/schema-planet';
+import { userLimit, UserLimit, NewUserLimit } from '@/db/schema-planet';
 
 export const MAX_FREE_COUNTS = 10;
 export const DAY_IN_MS = 86_400_000;
@@ -68,18 +68,17 @@ export const incrementUserLimit = async () => {
       .where(eq(userLimit.userId, userId))
   }
 
-  // type NewLimit = typeof userLimit.$inferInsert;
-  // const insertLimit = async (limit: NewLimit) => {
-  //   return db.insert(userLimit).values(limit);
-  // }
+  const insertLimit = async (limit: NewUserLimit) => {
+    return db.insert(userLimit).values(limit);
+  }
 
-  // const newLimit: NewLimit = { 'userId': userId, count: 1 };
-  // await insertLimit(newLimit);
+  // type SelectUser2 = InferSelectModel<typeof usersTable>;
 
-  await db.execute(sql`INSERT INTO ${userLimit} (userId, count) VALUES (${userId}, 1);`)
+  const newLimit: NewUserLimit = { 'userId': userId, count: 1 };
+  await insertLimit(newLimit);
 
+  // await db.execute(sql`INSERT INTO ${userLimit} (userId, count) VALUES (${userId}, 1);`)
 
-  
 }
 
 // export const checkSubscription = async () => {
