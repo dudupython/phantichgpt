@@ -2,7 +2,9 @@ import '@/styles/globals.css'
 import Link from "next/link"
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
+import { GeistSans as FontSans } from "geist/font";
+
 import { cn } from "@/lib/utils"
 
 import { marketingConfig } from '@/config/marketing'
@@ -20,7 +22,7 @@ import {
 } from "@clerk/nextjs";
 import { SiteFooter } from '@/components/site-footer'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -33,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    
    
        <div className="bg-gradient-to-br dark:bg-slate-800 from-violet-100 via-teal-50 to-amber-100 "> {/*h-screen w-full */}
         
@@ -74,6 +76,6 @@ export default function RootLayout({
       </div>
       
 
-            </>
+            
   )
 }

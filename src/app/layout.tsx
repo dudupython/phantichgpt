@@ -3,9 +3,8 @@ import '@/styles/globals.css'
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next'
 // import { Inter as FontSans } from "next/font/google"
-import { GeistSans as FontSans } from "geist/font";
-
-import localFont from "next/font/local"
+// import { GeistSans as FontSans } from "geist/font";
+// import localFont from "next/font/local"
 import { cn } from "@/lib/utils"
 
 // import { marketingConfig } from '@/config/marketing'
@@ -58,10 +57,10 @@ export const metadata: Metadata = {
 //   variable: "--font-sans",
 // })
 
-const fontHeading = localFont({
-  src: "../styles/fonts/CalSans-SemiBold.woff2",
-  variable: "--font-heading",
-})
+// const fontHeading = localFont({
+//   src: "../styles/fonts/CalSans-SemiBold.woff2",
+//   variable: "--font-heading",
+// })
 
 export default function RootLayout({
   children,
@@ -89,8 +88,8 @@ export default function RootLayout({
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           // fontSans.variable,
-          FontSans,
-          fontHeading.variable
+          // FontSans,
+          // fontHeading.variable
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
