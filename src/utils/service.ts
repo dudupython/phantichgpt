@@ -13,7 +13,7 @@ export interface QrGenerateRequest {
    * Conditioning scale for qr controlnet
    */
   qr_conditioning_scale?: number;
-
+  image_resolution?: number;
   /**
    * Steps to run denoising
    */

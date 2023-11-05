@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
     url: reqBody.url,
     prompt: reqBody.prompt,
     qr_conditioning_scale: 2,
+    image_resolution: 512,
     num_inference_steps: 30,
     guidance_scale: 5,
     negative_prompt:

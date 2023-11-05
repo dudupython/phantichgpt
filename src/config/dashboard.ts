@@ -42,11 +42,11 @@ export const dashboardConfig: DashboardConfig = {
       href: "/dashboard",
       icon: "bot",
     },
-    // {
-    //   title: "Qr Code",
-    //   href: "/dashboard/qr-code",
-    //   icon: "bot",
-    // },
+    {
+      title: "Qr Code",
+      href: "/dashboard/qr-code",
+      icon: "bot",
+    },
     {
       title: "test",
       href: "/dashboard/template",

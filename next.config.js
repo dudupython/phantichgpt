@@ -15,7 +15,10 @@ const nextConfig = {
             pathname: '/',
           },
           {
-            hostname: 'pbxt.replicate.delivery',
+            hostname: 'pbxt.replicate.delivery'
+          },
+          {
+            hostname: 'fngzth1bskhfpctb.public.blob.vercel-storage.com'
           },
 
         ],

@@ -2,6 +2,7 @@ import { redirect } from "next/navigation"
 // import { auth, clerkClient } from "@clerk/nextjs";
 import { DashboardShell } from "@/components/shell"
 import Body from '@/components/qr/Body';
+import { Suspense } from 'react';
 
 
 export const metadata = {
@@ -22,7 +23,9 @@ export default function QrPage () {
  
   return (
     <DashboardShell>
+      <Suspense>
       <Body />
+      </Suspense>
     </DashboardShell>
   )
 }
