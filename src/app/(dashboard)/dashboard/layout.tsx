@@ -1,3 +1,5 @@
+import "@uploadthing/react/styles.css";
+
 import { notFound } from "next/navigation"
 
 import { dashboardConfig } from "@/config/dashboard"

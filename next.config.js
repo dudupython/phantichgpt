@@ -20,6 +20,9 @@ const nextConfig = {
           {
             hostname: 'fngzth1bskhfpctb.public.blob.vercel-storage.com'
           },
+          {
+            hostname: 'utfs.io'
+          },
 
         ],
       },
