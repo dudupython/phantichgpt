@@ -25,7 +25,7 @@ import LoadingDots from '@/components/qr/loadingdots';
 import downloadQrCode from '@/utils/downloadQrCode';
 // import va from '@vercel/analytics';
 import { PromptSuggestion } from '@/components/qr/PromptSuggestion';
-// import { toast, Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 
 const promptSuggestions = [
   'A city view with clouds',
@@ -275,7 +275,7 @@ export default function Body({
           )}
         </div>
       </div>
-      {/* <Toaster /> */}
+      <Toaster />
     </div>
   )
 }

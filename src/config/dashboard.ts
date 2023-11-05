@@ -15,11 +15,11 @@ export const dashboardConfig: DashboardConfig = {
   mobileNav: [
     {
       title: "Qr code",
-      href: "dashboard/qr-code",
+      href: "qr-code",
     },
     {
       title: "Gen profile",
-    href: "dashboard",
+    href: "/dashboard",
     disabled: false,
     },
     
