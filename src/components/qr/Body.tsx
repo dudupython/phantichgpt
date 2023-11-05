@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -233,7 +233,9 @@ export default function Body({
               <h1 className="text-3xl font-bold sm:mb-5 mb-5 mt-5 sm:mt-0 sm:text-center text-left">
                 Your QR Code
               </h1>
+              <Suspense>
               <div>
+              
                 <div className="flex flex-col justify-center relative h-auto items-center">
                   {response ? (
                     <QrCard
@@ -244,6 +246,7 @@ export default function Body({
                     <div className="relative flex flex-col justify-center items-center gap-y-2 w-[510px] border border-gray-300 rounded shadow group p-2 mx-auto animate-pulse bg-gray-400 aspect-square max-w-full" />
                   )}
                 </div>
+                
                 {response && (
                   <div className="flex justify-center gap-5 mt-4">
                     <Button
@@ -267,6 +270,7 @@ export default function Body({
                   </div>
                 )}
               </div>
+              </Suspense>
             </>
           )}
         </div>

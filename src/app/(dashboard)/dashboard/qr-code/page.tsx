@@ -23,9 +23,9 @@ export default function QrPage () {
  
   return (
     <DashboardShell>
-      <Suspense>
+     
       <Body />
-      </Suspense>
+     
     </DashboardShell>
   )
 }

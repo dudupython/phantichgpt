@@ -6,33 +6,33 @@ export const dashboardConfig: DashboardConfig = {
     //   title: "Theo dõi",
     //   href: "/watching",
     // },
-    {
-      title: "Mua/bán",
-      href: "/reason",
-      disabled: false,
-    },
+    // {
+    //   title: "Qr Code",
+    //   href: "dashboard/qr-code/",
+    //   disabled: false,
+    // },
   ],
   mobileNav: [
     {
-      title: "Theo dõi",
-      href: "/watching",
+      title: "Qr code",
+      href: "dashboard/qr-code",
     },
     {
-      title: "Đánh giá",
-    href: "/risk",
+      title: "Gen profile",
+    href: "dashboard",
     disabled: false,
     },
     
     {
-      title: "Mua/bán",
-    href: "/reason",
-    disabled: false,
+      title: "test",
+    href: "template",
+    disabled: true,
     },
-    {
-      title: "Gen profile",
-    href: "/dashboard",
-    disabled: false,
-    },
+    // {
+    //   title: "Gen profile",
+    // href: "/dashboard",
+    // disabled: false,
+    // },
 
   ],
   
