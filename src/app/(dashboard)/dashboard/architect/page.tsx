@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-// import "@uploadthing/react/styles.css";
+import { Suspense } from 'react';
+import { CardSkeleton } from '@/components/skeletons';
 
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
@@ -45,7 +46,7 @@ export default function Page() {
 
 
     return (
-        <div className="max-w-2xl p-8">
+        <div className="max-w-3xl container items-center justify-center ">
             <UploadDropzone
                 endpoint={"image"}
                 onClientUploadComplete={(res) => {
@@ -80,16 +81,16 @@ export default function Page() {
                     </div>
                 </div>
             )}
-
+            {/* <Suspense fallback={<CardSkeleton />}> */}
               {restoredImage && (
-                <div>
+                <div className="text-xs text-muted-foreground mt-4">
                   Here is your remodeled <b>{room.toLowerCase()}</b> in the{" "}
                   <b>{theme.toLowerCase()}</b> theme!{" "}
                 </div>
               )}
+
               {restoredImage && (
-                <div className="sm:mt-0 mt-8">
-                  <h2 className="mb-1 font-medium text-lg">Generated Room</h2>
+                <div className="mt-0 mt-8">
                     
                     <Image
                       alt="restored photo"
@@ -101,6 +102,7 @@ export default function Page() {
                     />
                     
                 </div>)}
+                {/* </Suspense> */}
         </div>
     );
 }
