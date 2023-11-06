@@ -8,6 +8,8 @@ import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
 import { roomType, rooms, themeType, themes } from "@/utils/dropdownTypes";
 import Link from "next/link";
+import Resizer from "react-image-file-resizer";
+import LoadingDots from "@/components/qr/loadingdots";
 
 
 export default function Page() {
@@ -19,7 +21,7 @@ export default function Page() {
     const [room, setRoom] = useState<roomType>("Living Room");
     const [restoredImage, setRestoredImage] = useState("") //<string | null>(null);
     const [restoredLoaded, setRestoredLoaded] = useState<boolean>(false);
-
+  
     //
 
     async function generatePhoto(fileUrl: string) {
@@ -68,6 +70,13 @@ export default function Page() {
             <div className="text-xs text-muted-foreground mt-4">
                 16:9 aspect ratio recommended
             </div>
+            {loading && (
+              
+              <span className="pt-4">
+                <LoadingDots color="black" />
+              </span>
+           
+          )}
 
             {imageUrl && (
                 <div>
@@ -75,6 +84,7 @@ export default function Page() {
                         <Image
                             alt="Upload"
                             fill
+                            // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             className="object-cover rounded-md"
                             src={imageUrl}
                         />
@@ -82,6 +92,16 @@ export default function Page() {
                 </div>
             )}
             {/* <Suspense fallback={<CardSkeleton />}> */}
+            
+              {error && (
+                <div
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mt-8"
+                  role="alert"
+                >
+                  <span className="block sm:inline">{error}</span>
+                </div>
+              )}
+
               {restoredImage && (
                 <div className="text-xs text-muted-foreground mt-4">
                   Here is your remodeled <b>{room.toLowerCase()}</b> in the{" "}
@@ -91,15 +111,16 @@ export default function Page() {
 
               {restoredImage && (
                 <div className="mt-0 mt-8">
-                    
+                    <a href={restoredImage} target="_blank" rel="noreferrer">
                     <Image
                       alt="restored photo"
                       src={restoredImage}
                       className="rounded-md relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
-                      width={475}
-                      height={475}
+                      width={500}
+                      height={200}
+                      object-fit='cover'
                       onLoad={() => setRestoredLoaded(true)}
-                    />
+                    /></a>
                     
                 </div>)}
                 {/* </Suspense> */}
