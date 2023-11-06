@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
             ? "a room for gaming with gaming computers, gaming consoles, and gaming chairs"
             : `a ${theme.toLowerCase()} ${room.toLowerCase()}`,
         a_prompt:
-          "Photo of a beautiful design in the modernist style, photorealistic, ultra high resolution, insane detail",
+          " Interior design of a bedroom, french style glossy ceramic granite and polished natural stone",
         n_prompt:
           "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
       },
