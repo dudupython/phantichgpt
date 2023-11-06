@@ -47,7 +47,7 @@ export default async function DashboardPage() {
         {user?.firstName} {user?.lastName}
       </div>
       <OpenAiComponent />
-      {/* <SimpleForm /> */}
+      <SimpleForm />
       
 
       

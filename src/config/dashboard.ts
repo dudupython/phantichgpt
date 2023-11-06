@@ -14,6 +14,10 @@ export const dashboardConfig: DashboardConfig = {
   ],
   mobileNav: [
     {
+      title: "Living room",
+      href: "architect",
+    },
+    {
       title: "Qr code",
       href: "qr-code",
     },
@@ -37,6 +41,11 @@ export const dashboardConfig: DashboardConfig = {
   ],
   
   sidebarNav: [
+    {
+      title: "Living room",
+      href: "/dashboard/architect",
+      icon: "bot",
+    },
     {
       title: "Linkedin profile",
       href: "/dashboard",

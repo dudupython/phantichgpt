@@ -5,6 +5,7 @@ import Image from "next/image";
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
 import { roomType, rooms, themeType, themes } from "@/utils/dropdownTypes";
+import Link from "next/link";
 
 
 export default function Page() {
@@ -14,13 +15,15 @@ export default function Page() {
     const [error, setError] = useState<string | null>(null);
     const [theme, setTheme] = useState<themeType>("Modern");
     const [room, setRoom] = useState<roomType>("Living Room");
-    const [restoredImage, setRestoredImage] = useState<string | null>(null);
+    const [restoredImage, setRestoredImage] = useState("") //<string | null>(null);
+    const [restoredLoaded, setRestoredLoaded] = useState<boolean>(false);
+
     //
 
     async function generatePhoto(fileUrl: string) {
       await new Promise((resolve) => setTimeout(resolve, 200));
       setLoading(true);
-      const res = await fetch("/generate", {
+      const res = await fetch("/api/gen", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,6 +51,12 @@ export default function Page() {
                     if (res?.[0].url) {
                         console.log("Good job!. We did it!", res?.[0].url);
                         setImageUrl(res?.[0].url);
+
+                        //TA add
+                        // setPhotoName(imageName);
+                        // setOriginalPhoto(imageUrl);
+                        console.log(res?.[0].url, '-------')
+                        generatePhoto(res?.[0].url);
                     }
                 }}
                 onUploadError={(error: Error) => {
@@ -70,6 +79,27 @@ export default function Page() {
                     </div>
                 </div>
             )}
+
+              {restoredImage && (
+                <div>
+                  Here's your remodeled <b>{room.toLowerCase()}</b> in the{" "}
+                  <b>{theme.toLowerCase()}</b> theme!{" "}
+                </div>
+              )}
+              {restoredImage && (
+                <div className="sm:mt-0 mt-8">
+                  <h2 className="mb-1 font-medium text-lg">Generated Room</h2>
+                    
+                    <Image
+                      alt="restored photo"
+                      src={restoredImage}
+                      className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
+                      width={475}
+                      height={475}
+                      onLoad={() => setRestoredLoaded(true)}
+                    />
+                    
+                </div>)}
         </div>
     );
 }

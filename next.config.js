@@ -18,6 +18,9 @@ const nextConfig = {
             hostname: 'pbxt.replicate.delivery'
           },
           {
+            hostname: 'replicate.delivery'
+          },
+          {
             hostname: 'fngzth1bskhfpctb.public.blob.vercel-storage.com'
           },
           {
