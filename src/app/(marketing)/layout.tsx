@@ -49,7 +49,7 @@ export default function RootLayout({
 
 <div className='flex items-center space-x-4'>
             <SignedIn>
-            <Link href="/dashboard" >
+            <Link href="/dashboard/architect" >
             <Button>
               Dashboard
               </Button>
@@ -62,7 +62,7 @@ export default function RootLayout({
               {/* <Button>
                <SignInButton />
               </Button> */}
-               <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }))}>
+               <Link href="/dashboard/architect" className={cn(buttonVariants({ size: "lg" }))}>
                Sign in
               </Link>
             </SignedOut>

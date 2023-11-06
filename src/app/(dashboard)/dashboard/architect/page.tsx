@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+// import "@uploadthing/react/styles.css";
 
 import { UploadDropzone } from "@/lib/uploadthing";
 import { useState } from "react";
@@ -44,7 +45,7 @@ export default function Page() {
 
 
     return (
-        <div className={"max-w-2xl p-8"}>
+        <div className="max-w-2xl p-8">
             <UploadDropzone
                 endpoint={"image"}
                 onClientUploadComplete={(res) => {
@@ -93,7 +94,7 @@ export default function Page() {
                     <Image
                       alt="restored photo"
                       src={restoredImage}
-                      className="rounded-2xl relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
+                      className="rounded-md relative sm:mt-0 mt-2 cursor-zoom-in w-full h-96"
                       width={475}
                       height={475}
                       onLoad={() => setRestoredLoaded(true)}

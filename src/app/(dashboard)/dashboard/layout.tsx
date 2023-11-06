@@ -1,4 +1,3 @@
-import "@uploadthing/react/styles.css";
 
 import { notFound } from "next/navigation"
 

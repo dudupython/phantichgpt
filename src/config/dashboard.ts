@@ -27,11 +27,11 @@ export const dashboardConfig: DashboardConfig = {
     disabled: false,
     },
     
-    {
-      title: "test",
-    href: "template",
-    disabled: true,
-    },
+    // {
+    //   title: "test",
+    // href: "template",
+    // disabled: true,
+    // },
     // {
     //   title: "Gen profile",
     // href: "/dashboard",
@@ -56,11 +56,11 @@ export const dashboardConfig: DashboardConfig = {
       href: "/dashboard/qr-code",
       icon: "bot",
     },
-    {
-      title: "test",
-      href: "/dashboard/template",
-      icon: "bot",
-    },
+    // {
+    //   title: "test",
+    //   href: "/dashboard/template",
+    //   icon: "bot",
+    // },
    
     // {
     //   title: "Billing",
